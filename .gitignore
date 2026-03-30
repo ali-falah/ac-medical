@@ -1,0 +1,36 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Log files and temporary files
+*.log
+error_log
+*.bak
+*.swp
+*.tmp
+*~
+
+# Backups and temporary images
+2.png1
+2.pngb
+
+# PHP
+vendor/
+
+# Node
+node_modules/
+
+# JS Libraries & UI frameworks
+assests/bootstrap/
+assests/font-awesome/
+assests/jquery/
+assests/jquery-ui/
+assests/plugins/
+assests/jquery.slim.js
+assests/proper.js
+assests/xlsx.js

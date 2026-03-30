@@ -1,0 +1,139 @@
+/* dashboard.css */
+:root {
+  --dash-cyan: #0dcaf0;
+  --dash-teal: #17a2b8;
+  --dash-dark: #04191c;
+  --dash-gray: #f8f9fa;
+}
+
+.dashboard-container {
+  padding: 40px 30px;
+  background: var(--medical-bg);
+  min-height: calc(100vh - 60px);
+}
+
+.welcome-section {
+  margin-bottom: 40px;
+}
+
+.welcome-section h1 {
+  font-weight: 700;
+  color: var(--medical-text);
+}
+
+.stats-card {
+  border: none;
+  border-radius: 20px;
+  padding: 30px;
+  color: white;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.stats-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.stats-card i {
+  font-size: 3rem;
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  opacity: 0.15;
+}
+
+.card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  opacity: 0.9;
+}
+
+.card-value {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.bg-grad-teal {
+  background: linear-gradient(135deg, rgba(23, 162, 184, 0.9) 0%, rgba(13, 202, 240, 0.9) 100%);
+}
+.bg-grad-purple {
+  background: linear-gradient(135deg, rgba(102, 16, 242, 0.9) 0%, rgba(111, 66, 193, 0.9) 100%);
+}
+.bg-grad-green {
+  background: linear-gradient(135deg, rgba(40, 167, 69, 0.9) 0%, rgba(32, 201, 151, 0.9) 100%);
+}
+.bg-grad-orange {
+  background: linear-gradient(135deg, rgba(253, 126, 20, 0.9) 0%, rgba(255, 193, 7, 0.9) 100%);
+}
+
+.recent-activity-card {
+  border: none;
+  border-radius: 20px;
+  box-shadow: var(--premium-shadow);
+  background: var(--medical-card-bg);
+  backdrop-filter: blur(10px);
+  margin-top: 30px;
+  overflow: hidden;
+}
+
+.recent-activity-card .card-header {
+  background: transparent;
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+  font-weight: 700;
+  color: var(--medical-text);
+}
+
+.table-modern {
+  margin: 0;
+}
+
+/* Explicit Table Styles for dashboard */
+.table-modern thead th {
+  background: #fcfcfc !important; /* Default Light Mode Color */
+  border-top: none;
+  padding: 15px 20px;
+  font-size: 0.85rem;
+  color: #333333 !important; /* Force dark text in light mode */
+}
+
+.table-modern td {
+  padding: 15px 20px;
+  vertical-align: middle;
+}
+
+
+
+/* Explicit Dark Mode Overrides for Dashboard */
+body.dark-mode .dashboard-container {
+    background-color: var(--medical-bg) !important;
+}
+
+/* Ensure table headers are dark in dark mode */
+body.dark-mode .table-modern th {
+    background-color: var(--medical-card-bg) !important;
+    color: var(--medical-text-muted) !important;
+    border-bottom: 1px solid var(--medical-border);
+}
+
+body.dark-mode .table-modern td {
+    color: var(--medical-text);
+    border-bottom: 1px solid var(--medical-border);
+}
+
+body.dark-mode .recent-activity-card {
+    background-color: var(--medical-card-bg) !important;
+    border: 1px solid var(--medical-border);
+}
+
+body.dark-mode .stat-detail-row {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+

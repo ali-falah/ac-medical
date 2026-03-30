@@ -1,0 +1,409 @@
+/* Medical Theme Standard Styles */
+:root {
+  /* Default Light Theme */
+  --medical-bg: #f0f0f0;
+  --medical-card-bg: #ffffff;
+  --medical-text: #333333;
+  --medical-text-muted: #6c757d;
+  --medical-border: #ddd;
+  --medical-input-bg: #ffffff;
+  
+  --medical-blue: #007bff;
+  --medical-teal: #17a2b8;
+  --medical-dark: #04191c;
+  --medical-light: #f8f9fa;
+  --medical-gray: #6c757d;
+  --medical-success: #28a745;
+  --medical-danger: #dc3545;
+  --medical-warning: #ffc107;
+  --font-main: "Cairo", "Readex Pro", sans-serif;
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --premium-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+  /* Dark Mode Overrides */
+  --medical-bg: #121212;
+  --medical-card-bg: #1e1e1e;
+  --medical-text: #e0e0e0;
+  --medical-text-muted: #b0b0b0;
+  --medical-border: #333;
+  --medical-input-bg: #2c2c2c;
+  --medical-light: #2c2c2c; /* Fix for table headers */
+  
+  --glass-bg: rgba(30, 30, 30, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --premium-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Force Dark Mode on Bootstrap Elements */
+body.dark-mode .bg-light,
+body.dark-mode .bg-white,
+body.dark-mode .card {
+    background-color: var(--medical-card-bg) !important;
+    color: var(--medical-text) !important;
+}
+
+body.dark-mode .text-dark,
+body.dark-mode .text-secondary {
+    color: var(--medical-text) !important;
+}
+
+body.dark-mode .text-muted {
+    color: var(--medical-text-muted) !important;
+}
+
+body.dark-mode .border,
+body.dark-mode .border-top,
+body.dark-mode .border-bottom {
+    border-color: var(--medical-border) !important;
+}
+
+body.dark-mode .form-control {
+    background-color: var(--medical-input-bg) !important;
+    color: var(--medical-text) !important;
+    border-color: var(--medical-border) !important;
+}
+
+body.dark-mode .form-control:focus {
+    background-color: var(--medical-input-bg) !important;
+    color: var(--medical-text) !important;
+}
+
+body {
+  background-color: var(--medical-bg);
+  font-family: var(--font-main);
+  color: var(--medical-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Premium Navigation Redesign */
+.navbar {
+  background: rgba(4, 25, 28, 0.95) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 2px solid rgba(23, 162, 184, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  padding: 0.2rem 1rem !important;
+  /* min-height: 60px; REMOVED to allow auto sizing but max constrained */
+  height: 80px !important; /* Fixed height */
+  max-height: 80px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden; /* Prevent overflow expanding layout */
+}
+
+.navbar-brand img {
+  height: 50px !important;
+  max-height: 50px !important;
+  width: auto !important;
+  filter: drop-shadow(0 0 8px rgba(23, 162, 184, 0.4));
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+  transform: scale(1.05);
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 500;
+  padding: 5px 12px !important;
+  margin: 0 2px;
+  position: relative;
+  transition: all 0.3s ease !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link i {
+  font-size: 1.1rem;
+  color: var(--medical-teal);
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #fff !important;
+  background: rgba(23, 162, 184, 0.1);
+  border-radius: 8px;
+}
+
+.nav-link:hover i {
+  color: #fff;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--medical-teal);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 60%;
+}
+
+.nav-item.active .nav-link {
+  color: #fff !important;
+  background: rgba(23, 162, 184, 0.2);
+  border-radius: 8px;
+}
+
+.nav-item.active .nav-link i {
+  color: #fff;
+}
+
+.navbar-toggler {
+  border: none !important;
+  padding: 10px !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: rgba(4, 25, 28, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    margin: 0 -1.5rem;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(23, 162, 184, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
+  .nav-link {
+    padding: 12px 20px !important;
+    margin: 5px 0;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .navbar-nav {
+    align-items: stretch !important;
+  }
+
+  .nav-item.active .nav-link {
+    background: rgba(23, 162, 184, 0.3);
+  }
+
+  .navbar-brand img {
+    height: 40px;
+  }
+}
+
+/* Tables Styling */
+.table {
+  background: var(--medical-card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .table {
+    background-color: var(--medical-card-bg);
+    color: var(--medical-text);
+}
+
+body.dark-mode .table thead th {
+    background-color: #1a1a1a; 
+    color: var(--medical-text);
+    border-bottom: 1px solid var(--medical-border);
+}
+
+body.dark-mode .table-hover tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table thead {
+  background-color: var(--medical-teal);
+  color: white;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(23, 162, 184, 0.05);
+  cursor: pointer;
+}
+
+/* Forms and Inputs */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  border: 1px solid var(--medical-border);
+  background-color: var(--medical-input-bg);
+  color: var(--medical-text);
+  border-radius: 6px;
+  padding: 8px 12px;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--medical-teal);
+  box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.25);
+  outline: none;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--medical-blue);
+  border: none;
+}
+
+.btn-info {
+  background-color: var(--medical-teal);
+  border: none;
+}
+
+/* Glassmorphism Utilities */
+.bg-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.bg-glass-dark {
+  background: rgba(4, 25, 28, 0.8);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(23, 162, 184, 0.2);
+}
+
+.shadow-premium {
+  box-shadow: var(--premium-shadow);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Radio groups custom styling */
+.btn-group label {
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: all 0.2s;
+  transition: all 0.2s;
+  background: var(--medical-card-bg);
+  color: var(--medical-text);
+  border: 1px solid var(--medical-border);
+  margin-right: 5px;
+}
+
+.btn-group input[type="radio"]:checked + label,
+.btn-group label:has(input[type="radio"]:checked) {
+  background: var(--medical-teal);
+  color: white;
+}
+
+/* Modal/Side Panels */
+#view-Student {
+  background-color: rgba(4, 25, 28, 0.98);
+  backdrop-filter: blur(5px);
+  z-index: 1000000 !important;
+}
+/* Standard Search Bar */
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 45px 12px 20px !important;
+  border-radius: 50px !important;
+  border: 1px solid var(--medical-border) !important;
+  background-color: var(--medical-input-bg) !important;
+  color: var(--medical-text) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.3s ease !important;
+  font-size: 14px;
+}
+
+.input-wrapper input:focus {
+  border-color: var(--medical-teal) !important;
+  box-shadow: 0 4px 20px rgba(23, 162, 184, 0.15) !important;
+  padding-right: 55px !important;
+}
+
+.input-wrapper #searchIcon {
+  position: absolute;
+  top: 40%;
+  right: 20px;
+  transform: translateY(-50%);
+  color: var(--medical-teal);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.input-wrapper input:focus + #searchIcon {
+  right: 25px;
+  color: var(--medical-blue);
+}
+
+/* Modals Dark Mode */
+.glass-modal {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: none;
+}
+
+body.dark-mode .modal-content,
+body.dark-mode .glass-modal {
+    background-color: var(--medical-card-bg) !important;
+    color: var(--medical-text) !important;
+    border: 1px solid var(--medical-border);
+}
+
+body.dark-mode .modal-header,
+body.dark-mode .modal-footer {
+    border-color: var(--medical-border) !important;
+}
+
+body.dark-mode .close {
+    color: var(--medical-text) !important;
+    text-shadow: none;
+    opacity: 0.8;
+}
+
+body.dark-mode .close:hover {
+    opacity: 1;
+}

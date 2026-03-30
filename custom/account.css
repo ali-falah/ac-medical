@@ -1,0 +1,226 @@
+* {
+  font-family: "Cairo", Arial, Helvetica, sans-serif;
+}
+
+
+
+.row-std {
+  transition: all 0.1s;
+  cursor: pointer;
+}
+
+#printIcon:hover {
+  transform: scale(1.1);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+#deletStudentIconButton:hover {
+  transform: scale(1.1);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+#view-Student {
+  position: fixed;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  background: rgba(4, 25, 28, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10001 !important;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+#view-Student.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+}
+
+/* Header Section */
+.drawer-header {
+  padding: 20px 40px;
+  background: rgba(23, 162, 184, 0.1);
+  border-bottom: 1px solid rgba(23, 162, 184, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.drawer-content {
+  padding: 40px;
+  flex: 1;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.summary-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.summary-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px);
+}
+
+.summary-card .label {
+  display: block;
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+
+.summary-card .value {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Action Center */
+.action-center {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.action-pane {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.action-pane h4 {
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--medical-teal);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Scrollbar Style */
+#view-Student::-webkit-scrollbar {
+  width: 8px;
+}
+#view-Student::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+#view-Student::-webkit-scrollbar-thumb {
+  background: var(--medical-teal);
+  border-radius: 4px;
+}
+
+/* Animations stagger */
+/* Animations stagger */
+.drawer-content > *, .glass-table {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+.drawer-content > *:nth-child(1) { animation-delay: 0.1s; }
+.drawer-content > *:nth-child(2) { animation-delay: 0.2s; }
+.drawer-content > *:nth-child(3) { animation-delay: 0.3s; }
+.drawer-content > *:nth-child(4) { animation-delay: 0.4s; }
+.drawer-content > *:nth-child(5) { animation-delay: 0.5s; }
+
+/* Glass Table Styling for Drawer Content */
+.glass-table {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+    border: none !important;
+}
+
+.glass-table thead th {
+    background: var(--medical-teal) !important;
+    color: white !important;
+    border: none !important;
+    padding: 15px !important;
+    font-weight: 600;
+}
+
+.glass-table tbody td {
+    color: #000 !important; /* Force black text as requested */
+    padding: 12px 15px !important;
+    vertical-align: middle;
+    border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+    font-weight: 500;
+}
+
+.glass-table tbody tr:hover {
+    background: rgba(23, 162, 184, 0.1) !important;
+}
+
+/* Blur Effect for Body */
+body.drawer-open > *:not(#view-Student):not(.navbar) {
+  filter: blur(8px);
+  transition: filter 0.5s ease;
+  pointer-events: none;
+}
+
+/* Standardizing with Medical Theme */
+input,
+textarea,
+select {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 10px 15px;
+  background-color: #fbfbfb;
+  transition: var(--transition-smooth);
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--medical-teal);
+  box-shadow: 0 0 15px rgba(23, 162, 184, 0.15);
+  background-color: #fff;
+}
+
+.hidePayDiv {
+  display: none !important;
+}
+
+#PayTheRemainDiv {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  margin-top: 15px;
+}
+
+#view-Student p,
+#view-Student h6,
+#view-Student i,
+#view-Student h4 {
+  color: #e0e0e0 !important;
+  font-weight: 400;
+}
